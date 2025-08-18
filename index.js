@@ -105,7 +105,7 @@ const start = async () => {
       return console.log("Stop: 100 ta chatga qo'shildi.");
     }
 
-    setTimeout(runInterval, 1000 * 60 * 15);
+    setTimeout(runInterval, 1000 * 60 * 25);
   };
 
   runInterval();
