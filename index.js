@@ -67,7 +67,7 @@ const start = async () => {
 
       if (members < 2000 || members > 195000) {
         deleted++;
-        Username.findOneAndDelete({ username });
+        await Username.findOneAndDelete({ username });
       }
 
       if (members < 4000 || members > 185000) {
@@ -79,7 +79,7 @@ const start = async () => {
         continue;
       }
 
-      Username.findOneAndUpdate({ username }, { members });
+      await Username.findOneAndUpdate({ username }, { members }, { new: true });
 
       const res = await joinChat({ client, username });
       const chats = res?.chats;
