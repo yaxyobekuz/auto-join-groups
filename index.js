@@ -61,7 +61,7 @@ const start = async () => {
 
     for (let { username } of usernames) {
       index++;
-      if (joined === 6) break;
+      if (joined === 10) break;
 
       const members = await getChatMembersCount({ client, username });
 
