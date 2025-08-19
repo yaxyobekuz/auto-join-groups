@@ -53,16 +53,23 @@ const start = async () => {
 
   const joinChats = async () => {
     const { count } = await Count.findOne();
-    const usernames = await Username.find().skip(count).limit(15);
+    const usernames = await Username.find().skip(count).limit(25);
 
     let index = 0;
     let joined = 0;
+    let deleted = 0;
 
     for (let { username } of usernames) {
       index++;
       if (joined === 6) break;
 
       const members = await getChatMembersCount({ client, username });
+
+      if (members < 5000 || members > 195000) {
+        deleted++;
+        Username.findOneAndDelete({ username });
+      }
+
       if (members < 7500 || members > 170000) {
         console.log(
           `${
@@ -71,6 +78,8 @@ const start = async () => {
         );
         continue;
       }
+
+      Username.findOneAndUpdate({ username }, { members });
 
       const res = await joinChat({ client, username });
       const chats = res?.chats;
@@ -95,13 +104,13 @@ const start = async () => {
     }
 
     console.log(`Foydalanuvchi jami ${joined}ta chatga qo'shildi!`);
-    await Count.updateOne({}, { $inc: { count: index, joined } });
+    await Count.updateOne({}, { $inc: { count: index - deleted, joined } });
   };
 
   const runInterval = async () => {
     await joinChats();
-    const { joined, count } = await Count.findOne();
-    if (joined > 100 || count > 700) {
+    const { joined } = await Count.findOne();
+    if (joined > 100) {
       return console.log("Stop: 100 ta chatga qo'shildi.");
     }
 
