@@ -15,7 +15,7 @@ const { StringSession } = require("telegram/sessions");
 const apiHash = process.env.API_HASH;
 const apiId = Number(process.env.API_ID);
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
-const stringSession = `1AgAOMTQ5LjE1NC4xNjcuNTEBuwwQGGih5I6el2K/vsl0/NeXo2ZHMHqUJF5cTlevVlWZt3nZ+MQWJNUDXGNFP7PD6kjPC/N9+4QwvYzEYkMp8HT4qgpB6T+k9ZgFdrjSZbkOo+mF1yZFQyM7b16lMmf1rqdSPTx88hurRcF+jsKqBYd9nEp5ONSjNIu6JEmg22ZY3EFWHyOcobYL1w7zfPTR6wF3bcNz/QomMKrpqbXoFtCtLOc4oIINRw9/xfKcrdv6rhosLIgmPQBol7yTr9LYBNFe/TJWxoRH8rqgpKDmJMoX+FApnpZhwE5Mf/BCfMAyoz62hzu0xicaoEGGecpwli06ZA7ChcGy170Uw79ur98=`;
+const stringSession = `1AgAOMTQ5LjE1NC4xNjcuNTEBu7Dq1j69dtB43J0kVvnTkRwA1a3M6bA32O5yqY9h9v3HLCaJzyNhyyCm72sRSEW2diA0QwmrFSkVrn8fBgesf7SWdqd0EJ5oDKGSfNek3tgXg0BYerI2qInlHSG5LbiI0KUXmPIeMrnXom/vYF5W+3cWSXlVD8QvG/+xJy3Cftkkhq/yVI8FFFv+u1JVCHiDTQVpH1pqQQpGs5Hwvdhkb40CSyhSHpHuADBhPKS8IvQYEvidvPb+9S4kAslOd9G87yxF1SWYPS26RE5m7zrCCbYA67OtvlTbRBvyqEWxAlLQFF3V/tBn2c3DBYWCd+jwJrhsf0V3ctX+G74FiNiFpms=`;
 
 const joinChat = async ({ client, username }) => {
   try {
