@@ -65,12 +65,12 @@ const start = async () => {
 
       const members = await getChatMembersCount({ client, username });
 
-      if (members < 5000 || members > 195000) {
+      if (members < 2000 || members > 195000) {
         deleted++;
         Username.findOneAndDelete({ username });
       }
 
-      if (members < 7500 || members > 170000) {
+      if (members < 4000 || members > 185000) {
         console.log(
           `${
             count + index
